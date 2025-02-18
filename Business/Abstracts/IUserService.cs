@@ -1,10 +1,5 @@
 ﻿using Dto.Request;
 using Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Abstracts
 {
@@ -12,5 +7,9 @@ namespace Business.Abstracts
     {
         void Add(UserAddRequestDto Dto);
         void Delete(UserDeleteRequestDto Dto);
+        public List<User> GetAll();
+        public User? GetByEMail(string email);
+        public bool isUserExist(string email);
+        public bool isValidMail(string email);
     }
 }

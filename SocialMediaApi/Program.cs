@@ -1,9 +1,11 @@
 using Business.Abstracts;
 using Business.Concretes;
 using DataAccess;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<SocialMediaContext> (options => options.UseSqlServer(builder.Configuration.GetConnectionString("MsSql")));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

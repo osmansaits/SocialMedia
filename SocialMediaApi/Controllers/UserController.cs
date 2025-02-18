@@ -1,6 +1,9 @@
 ﻿using Business.Abstracts;
 using Dto.Request;
+using Entities;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.RegularExpressions;
+
 
 namespace SocialMediaApi.Controllers
 {
@@ -15,16 +18,20 @@ namespace SocialMediaApi.Controllers
             _userService = userService;
 
         }
-        [HttpPost("Add")]
+        
+        [HttpPost("add")]
         public void Add([FromBody] UserAddRequestDto dto)
         {
             _userService.Add(dto);
         }
-        [HttpPost("Delete")]
-        public void Delete([FromBody] UserDeleteRequestDto dto)
-        {
-            _userService.Delete(dto);
+        
+        [HttpGet("getAll")]
+        public List<User> GetAll() => _userService.GetAll();
 
-        }
+        
+        [HttpPost("delete")]
+        public void Delete([FromBody] UserDeleteRequestDto dto) => _userService.Delete(dto);
+
+        
     }
 }
