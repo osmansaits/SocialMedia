@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Builders
 {
-    internal class UserBuilder
+    internal class PostBuilder
     {
     }
 }

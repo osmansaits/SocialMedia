@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Builders
+namespace Utilities
 {
-    internal class UserBuilder
+    public interface IJwtService
     {
+        string GenerateJwtToken(string user);
     }
 }

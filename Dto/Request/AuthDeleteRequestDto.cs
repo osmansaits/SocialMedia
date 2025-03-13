@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dto.Request
 {
-    public class UserAddRequestDto
+    public class AuthDeleteRequestDto
     {
-        public string name { get; set; }
-        public string lastname { get; set; }
+  
         public string email { get; set; }
         public string password { get; set; }
 

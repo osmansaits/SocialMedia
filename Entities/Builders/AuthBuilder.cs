@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Entities.Builders
 {
-    internal class UserBuilder
+    public class AuthBuilder
     {
+       
     }
 }

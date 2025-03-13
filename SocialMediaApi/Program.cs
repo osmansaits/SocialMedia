@@ -2,20 +2,27 @@ using Business.Abstracts;
 using Business.Concretes;
 using DataAccess;
 using Microsoft.EntityFrameworkCore;
+using Utilities;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<SocialMediaContext> (options => options.UseSqlServer(builder.Configuration.GetConnectionString("MsSql")));
+// DBContext ve diðer servisler
+builder.Services.AddDbContext<SocialMediaContext>(options =>options.UseSqlServer(builder.Configuration.GetConnectionString("MsSql")));
 
+// API controller
 builder.Services.AddControllers();
+
+// Swagger API
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-#region Container
-builder.Services.AddScoped<IUserService,UserService>();
-builder.Services.AddScoped<SocialMediaContext>();
-#endregion 
+// AutoMapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+// IoC Container servisleri
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<SocialMediaContext>();
+builder.Services.AddScoped<IJwtService, JwtManager>();
 
 var app = builder.Build();
 
@@ -26,9 +33,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
