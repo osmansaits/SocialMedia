@@ -19,7 +19,7 @@ TestResults
 *.suo
 *.user
 *.sln.docstates
-/Notes.txt
+
 
 
 # Build results
@@ -119,4 +119,4 @@ src/.vs/config/applicationhost.config
 # JetBrains Rider's auto generated files
 .idea/
 
-/notes.txt
+Notes.txt
